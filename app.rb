@@ -11,7 +11,9 @@ post '/mira' do
   logger.info "#{params}"
 
   @body = params['Body'] || "Asere ponte pa la cosa"
-  @image = params['MediaUrl0']
+
+  @image = HTTParty.get(params['MediaUrl0'], follow_redirects: true)
+  @image = @image.request.last_uri.to_s
 
   @bot_payload = {
     text: @body,
