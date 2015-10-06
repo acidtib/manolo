@@ -8,7 +8,7 @@ end
 post '/mira' do
   content_type :json
 
-  puts params['MessageSid']
+  logger.info  params['MessageSid']
 
   @body = ""
   @image = ""
