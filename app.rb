@@ -11,7 +11,7 @@ post '/mira' do
   logger.info "#{params}"
 
   @body = params['Body']
-  @image = param['MediaUrl0']
+  @image = params['MediaUrl0']
 
   @bot_payload = {
     text: "Asere ponte pa la cosa",
