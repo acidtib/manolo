@@ -6,7 +6,7 @@ app.get('/', function(request, response) {
   response.send('Hello World!')
 })
 
-app.get('/mira', function(request, response) {
+app.post('/mira', function(request, response) {
 
   console.log(response);
   console.log('-------------------');
