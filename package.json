@@ -1,0 +1,24 @@
+{
+  "name": "manolo",
+  "version": "0.0.1",
+  "description": "Manolo el problamatico",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "express": "^4.13.3",
+    "needle": "^0.10.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/drkyro/manolo.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/drkyro/manolo/issues"
+  },
+  "homepage": "https://github.com/drkyro/manolo#readme"
+}
