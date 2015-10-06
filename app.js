@@ -2,15 +2,17 @@ var express = require('express')
   , app = express()
   , port = process.env.PORT || 3000
 
+var logger = require('express-logger');
+app.use(logger({path: "log.txt"}));
+
 app.get('/', function(request, response) {
   response.send('Hello World!')
 })
 
 app.post('/mira', function(request, response) {
 
-  console.log(response);
   console.log('-------------------');
-  console.log(response.body);
+  console.log(response.Body);
 
   // var text_body = response;
 

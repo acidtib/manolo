@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "express": "^4.13.3",
+    "express-logger": "^0.0.3",
     "needle": "^0.10.0"
   },
   "repository": {
