@@ -10,12 +10,13 @@ post '/mira' do
 
   logger.info "#{params}"
 
-  @body = params['Body']
+  @body = params['Body'] || "Asere ponte pa la cosa"
   @image = params['MediaUrl0']
 
   @bot_payload = {
-    text: "Asere ponte pa la cosa",
+    text: @body,
     channel: "#botdev",
+    unfurl_links: true,
     attachments: {
       fallback: "deja el drama",
       color: "#D00000",
