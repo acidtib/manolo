@@ -8,15 +8,21 @@ end
 post '/mira' do
   content_type :json
 
-  @body = params['Body']
+  if params['Body']
+    @body = params['Body']
+  end
 
-  @image = HTTParty.get(params['MediaUrl0'], follow_redirects: true)
-  @image = @image.request.last_uri.to_s
+  if params['MediaUrl0']
+    @image = HTTParty.get(params['MediaUrl0'], follow_redirects: true)
+    @image = @image.request.last_uri.to_s
 
-  @upload_image = Cloudinary::Uploader.upload(@image)
+    @upload_image = Cloudinary::Uploader.upload(@image)
+
+    @body = "#{@body}, " || "" + @upload_image.url
+  end
 
   @bot_payload = {
-    text: @upload_image['url'],
+    text: @body,
     channel: "#botdev"
   }
 
