@@ -22,7 +22,7 @@ post '/mira' do
     attachments: {
       fallback: "deja el drama",
       color: "#D00000",
-      image_url: @upload_image.url
+      image_url: @upload_image['url']
     }
   }
 
