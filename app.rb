@@ -28,12 +28,12 @@ post '/mira' do
 
   logger.info @bot_payload
 
-  @to_slack = HTTParty.post(ENV['SLACK_HOOK'], { 
-    :body => @bot_payload.to_json,
-    :headers => { 'Content-Type' => 'application/json', 'Accept' => 'application/json'}
-  })
+  # @to_slack = HTTParty.post(ENV['SLACK_HOOK'], { 
+  #   :body => @bot_payload.to_json,
+  #   :headers => { 'Content-Type' => 'application/json', 'Accept' => 'application/json'}
+  # })
 
-  logger.info @to_slack
+  # logger.info @to_slack
 
   @resp = {
     meta: {
