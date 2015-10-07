@@ -7,3 +7,5 @@ gem 'dotenv'
 gem 'httparty'
 gem 'json'
 gem 'thin'
+
+gem 'cloudinary'

@@ -15,6 +15,10 @@ post '/mira' do
   @image = HTTParty.get(params['MediaUrl0'], follow_redirects: true)
   @image = @image.request.last_uri.to_s
 
+  @upload_image = Cloudinary::Uploader.upload(@image)
+
+  logger.info @upload_image
+
   @bot_payload = {
     text: @body,
     channel: "#botdev",
