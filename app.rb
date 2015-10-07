@@ -7,7 +7,9 @@ end
 
 post '/mira' do
   content_type :json
+
   @body = ""
+  
   if params['Body']
     @body = params['Body']
   end
@@ -18,7 +20,7 @@ post '/mira' do
 
     @upload_image = Cloudinary::Uploader.upload(@image)
 
-    @body = "#{@body}, " + @upload_image['url']
+    @body = "#{@body}, " + "\n" + @upload_image['url']
   end
 
   @bot_payload = {
@@ -26,14 +28,10 @@ post '/mira' do
     channel: "#botdev"
   }
 
-  logger.info @bot_payload
-
   @to_slack = HTTParty.post(ENV['SLACK_HOOK'], { 
     :body => @bot_payload.to_json,
     :headers => { 'Content-Type' => 'application/json', 'Accept' => 'application/json'}
   })
-
-  logger.info @to_slack
 
   @resp = {
     meta: {
