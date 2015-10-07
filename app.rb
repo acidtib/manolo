@@ -20,7 +20,7 @@ post '/mira' do
 
     @upload_image = Cloudinary::Uploader.upload(@image)
 
-    @body = "#{@body}, " + "\n" + @upload_image['url']
+    @body = "#{@body}" + "\n" + @upload_image['url']
   end
 
   @bot_payload = {
