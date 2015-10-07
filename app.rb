@@ -16,14 +16,8 @@ post '/mira' do
   @upload_image = Cloudinary::Uploader.upload(@image)
 
   @bot_payload = {
-    text: @body,
-    channel: "#botdev",
-    unfurl_links: true,
-    attachments: {
-      fallback: "deja el drama",
-      color: "#D00000",
-      image_url: @upload_image['url']
-    }
+    text: @upload_image['url'],
+    channel: "#botdev"
   }
 
   logger.info @bot_payload
