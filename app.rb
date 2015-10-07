@@ -25,7 +25,7 @@ post '/mira' do
 
   @bot_payload = {
     text: @body,
-    channel: "#botdev"
+    channel: "#general"
   }
 
   @to_slack = HTTParty.post(ENV['SLACK_HOOK'], { 
